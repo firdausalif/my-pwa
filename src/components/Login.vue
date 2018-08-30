@@ -11,6 +11,7 @@
             <v-layout column>
               <v-flex>
                 <v-text-field
+                  style="-webkit-border-radius: 50px !important;moz-border-radius: 50px !important;border-radius: 50px !important;border: none !important; "
                   name="login"
                   label="Email or Username"
                   id="login"
@@ -44,10 +45,6 @@
                   <v-icon light>cached</v-icon>
                 </span>
               </v-btn>
-              <v-flex mt-4 class="text-xs-center">
-                <h3>OR</h3>
-                <v-divider light></v-divider>
-              </v-flex>
             </v-layout>
           </form>
         </v-flex>

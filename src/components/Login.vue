@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-container fluid>
-      <v-layout row wrap>
+    <v-container id="container" fluid>
+      <v-layout id="content" row wrap>
         <v-flex xs12 class="text-xs-center" mt-3>
           <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-3" width="50">
           <h2>With ❤ by .Native</h2>
@@ -11,8 +11,8 @@
             <v-layout column>
               <v-flex>
                 <v-text-field
-                  style="-webkit-border-radius: 50px !important;moz-border-radius: 50px !important;border-radius: 50px !important;border: none !important; "
                   name="login"
+                  v-model="login"
                   label="Email or Username"
                   id="login"
                   type="text"
@@ -31,38 +31,40 @@
                   @click:append="passwordVisible = !passwordVisible"
                 ></v-text-field>
               </v-flex>
-              <v-btn
-                style="margin:0 !important;"
-                :loading="signInLoading"
-                :disabled="signInLoading"
-                color="primary"
-                @click.native="loader = 'signInLoading'"
-                large
-                outline
-              >
-                Login
-                <span slot="loader" class="custom-loader">
-                  <v-icon light>cached</v-icon>
-                </span>
-              </v-btn>
+              <v-flex>
+                <v-btn
+                  style="margin:0 !important;"
+                  :loading="signInLoading"
+                  :disabled="signInLoading"
+                  color="primary"
+                  @click.native="loader = 'signInLoading'"
+                  large
+                  outline
+                  block
+                >
+                  Login
+                  <span slot="loader" class="custom-loader">
+                    <v-icon light>cached</v-icon>
+                  </span>
+                </v-btn>
+              </v-flex>
             </v-layout>
           </form>
         </v-flex>
       </v-layout>
+      <v-flex>
+          <v-btn
+            v-if="!keyboardOnShow"
+            id="registerBtn"
+            class="btn-btm"
+            color="success"
+            large
+            block
+          >
+            Don't have an acoount? Register
+          </v-btn>
+        </v-flex>
     </v-container>
-    <v-layout row>
-      <v-flex xs12>
-         <v-btn
-          style="margin:0 !important; height: 50px !important"
-          color="success"
-          large
-          block
-          bottom
-        >
-          Don't have an acoount? Register
-        </v-btn>
-      </v-flex>
-    </v-layout>
   </v-app>
 </template>
 
@@ -74,7 +76,11 @@
       passwordVisible: false,
       password: '',
       signInLoading: false,
-      loader: null
+      loader: null,
+      windowHeight: 0,
+      txt: '',
+      login: '',
+      keyboardOnShow: false
     }),
     watch: {
       loader () {
@@ -84,12 +90,39 @@
         setTimeout(() => (this[l] = false), 3000)
 
         this.loader = null
+      },
+      windowHeight  (newHeight, oldHeight) {
+        if (newHeight < 580) {
+          this.keyboardOnShow = true
+        } else {
+          this.keyboardOnShow = false
+        }
       }
+    },
+    mounted () {
+      this.$nextTick(() => {
+        window.addEventListener('resize', () => {
+          this.windowHeight = window.innerHeight
+        })
+      })
     }
   }
 </script>
 
 <style scoped>
+  #container {
+    padding: 0;
+    height: 100vh !important;
+  }
+  #content {
+    margin: 12px;
+  }
+  .btn-btm{
+    margin:0 !important; 
+    height: 50px !important; 
+    position: absolute;
+    bottom: 0;
+  }
   .custom-loader {
     animation: loader 1s infinite;
     display: flex;

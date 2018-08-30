@@ -15,7 +15,7 @@
     </v-layout>
     <v-container fluid>
       <v-layout row wrap>
-        <v-flex xs  12 class="text-xs-center" mt-5>
+        <v-flex xs12 class="text-xs-center" mt-5>
           <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-3" width="80">
           <h1>Login to My-app</h1>
         </v-flex>

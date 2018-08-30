@@ -1,23 +1,10 @@
 <template>
   <v-app>
-    <v-layout row>
-      <v-flex xs12 sm12 md12>
-        <v-card color="grey lighten-4" flat>
-          <v-toolbar color="primary" dark>
-            <v-btn icon>
-              <v-icon>arrow_back</v-icon>
-            </v-btn>
-            <v-spacer></v-spacer>
-            <v-toolbar-title>Register</v-toolbar-title>
-          </v-toolbar>
-        </v-card>
-      </v-flex>
-    </v-layout>
     <v-container fluid>
       <v-layout row wrap>
-        <v-flex xs12 class="text-xs-center" mt-5>
-          <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-3" width="80">
-          <h1>Login to My-app</h1>
+        <v-flex xs12 class="text-xs-center" mt-3>
+          <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-3" width="50">
+          <h2>With ❤ by .Native</h2>
         </v-flex>
         <v-flex xs12 sm6 offset-sm3 mt-3>
           <form>
@@ -50,17 +37,35 @@
                 color="primary"
                 @click.native="loader = 'signInLoading'"
                 large
+                outline
               >
                 Login
                 <span slot="loader" class="custom-loader">
                   <v-icon light>cached</v-icon>
                 </span>
               </v-btn>
+              <v-flex mt-4 class="text-xs-center">
+                <h3>OR</h3>
+                <v-divider light></v-divider>
+              </v-flex>
             </v-layout>
           </form>
         </v-flex>
       </v-layout>
     </v-container>
+    <v-layout row>
+      <v-flex xs12>
+         <v-btn
+          style="margin:0 !important; height: 50px !important"
+          color="success"
+          large
+          block
+          bottom
+        >
+          Don't have an acoount? Register
+        </v-btn>
+      </v-flex>
+    </v-layout>
   </v-app>
 </template>
 

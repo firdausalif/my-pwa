@@ -19,6 +19,7 @@
                   required
                   outline
                   autofocus
+                  browser-autocomplete="off"
                   ></v-text-field>
               </v-flex>
               <v-flex>

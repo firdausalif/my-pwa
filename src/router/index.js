@@ -8,9 +8,10 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Login',
-      component: Login
+      path: '/', // Path URL
+      name: 'Login', // Name of route
+      component: Login, // Vue component
+      meta: {title: 'Login - Mobcom'} // Title of the page
     }
   ]
 })

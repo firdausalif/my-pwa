@@ -10,6 +10,12 @@ Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 
+// push meta description to index.html (currently for title)
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

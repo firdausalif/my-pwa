@@ -62,7 +62,7 @@
             large
             block
           >
-            Don't have an acoount? Register
+            Create an Account
           </v-btn>
         </v-flex>
     </v-container>

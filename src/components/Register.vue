@@ -31,7 +31,6 @@
                   type="email"
                   required
                   outline
-                  autofocus
                   browser-autocomplete="off"
                   ></v-text-field>
               </v-flex>

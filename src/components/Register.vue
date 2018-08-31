@@ -11,11 +11,24 @@
             <v-layout column>
               <v-flex>
                 <v-text-field
-                  name="login"
-                  v-model="login"
-                  label="Email or Username"
-                  id="login"
+                  name="username"
+                  v-model="username"
+                  label="Username"
+                  id="username"
                   type="text"
+                  required
+                  outline
+                  autofocus
+                  browser-autocomplete="off"
+                  ></v-text-field>
+              </v-flex>
+              <v-flex>
+                <v-text-field
+                  name="email"
+                  v-model="email"
+                  label="Email"
+                  id="email"
+                  type="email"
                   required
                   outline
                   autofocus
@@ -28,8 +41,16 @@
                   :type="passwordVisible ? 'text' : 'password'"
                   name="password"
                   label="Password"
+                  v-model="password"
                   outline
                   @click:append="passwordVisible = !passwordVisible"
+                ></v-text-field>
+              </v-flex>
+              <v-flex>
+                <v-text-field
+                  label="Confirm your Password"
+                  v-model="passwordConfirm"
+                  outline
                 ></v-text-field>
               </v-flex>
               <v-flex>
@@ -43,7 +64,7 @@
                   outline
                   block
                 >
-                  Login
+                  Register
                   <span slot="loader" class="custom-loader">
                     <v-icon light>cached</v-icon>
                   </span>
@@ -53,19 +74,6 @@
           </form>
         </v-flex>
       </v-layout>
-      <v-flex>
-          <v-btn
-            v-if="!keyboardOnShow"
-            id="registerBtn"
-            class="btn-btm"
-            color="success"
-            to="/register/"
-            large
-            block
-          >
-            Create an Account
-          </v-btn>
-        </v-flex>
     </v-container>
   </v-app>
 </template>
@@ -77,11 +85,14 @@
     data: () => ({
       passwordVisible: false,
       password: '',
+      username: '',
+      email: '',
+      nama: '',
+      passwordConfirm: '',
       signInLoading: false,
       loader: null,
       windowHeight: 0,
       txt: '',
-      login: '',
       keyboardOnShow: false
     }),
     watch: {

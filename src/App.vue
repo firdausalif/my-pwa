@@ -1,6 +1,6 @@
 <template>
 	<v-app>
-		<div class="login">
+		<div>
 			<router-view></router-view>
 		</div>
 	</v-app>

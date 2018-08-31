@@ -10,6 +10,12 @@ Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 
+/* for passing meta data to index.html (currently for dynamic title) */
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

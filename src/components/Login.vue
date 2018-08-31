@@ -4,7 +4,7 @@
       <v-layout id="content" row wrap>
         <v-flex xs12 class="text-xs-center" mt-3>
           <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-3" width="50">
-          <h2>With ❤ by .Native</h2>
+          <h2><span style="color: dodgerblue;">&lt;/&gt;</span> with <span style="color:red;">❤</span> by .Native</h2>
         </v-flex>
         <v-flex xs12 sm6 offset-sm3 mt-3>
           <form>
@@ -58,7 +58,8 @@
             v-if="!keyboardOnShow"
             id="registerBtn"
             class="btn-btm"
-            color="success"
+            color="teal"
+            dark
             to="/register/"
             large
             block
